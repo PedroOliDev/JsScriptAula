@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dinâmico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm">
+            <h2>Login</h2>
+            <div class="input-container">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required placeholder="Digite seu usuário">
+                <span class="error" id="usernameError"></span>
+            </div>
+            <div class="input-container">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                <span class="error" id="passwordError"></span>
+            </div>
+            <button type="submit" id="submitBtn" onclick="window.location.href = '../Loja/loja.html';">Entrar</button>
+            <div id="feedback" class="feedback"></div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

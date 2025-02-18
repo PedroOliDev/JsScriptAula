@@ -1,0 +1,201 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #FF6699; /* Rosa */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #ff69b4; /* Rosa */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+    
+.produtos {
+    display: flex;
+}
+
+.produto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    
+    
+}
+
+.produto img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.produto h3 {
+    margin: 15px 0 10px;
+    font-size: 1.5em;
+    color: #ff69b4; /* Rosa */
+}
+
+.produto p {
+    font-size: 1em;
+    color: #666;
+}
+
+.produto button {
+    background-color: #ff69b4; /* Rosa */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    
+    
+
+}
+
+.produto button:hover {
+    background-color: #ff1493; /* Rosa mais escuro */
+}
+
+/* Carrinho de compras */
+.carrinho {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.carrinho h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #ff69b4; /* Rosa */
+}
+
+.carrinho ul {
+    list-style: none;
+    padding: 0;
+}
+
+.carrinho ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.carrinho p {
+    font-size: 1.5em;
+    color: #ff69b4; /* Rosa */
+    margin: 20px 0;
+}
+
+.carrinho button {
+    background-color: #ff69b4; /* Rosa */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.carrinho button:hover {
+    background-color: #ff1493; /* Rosa mais escuro */
+}
+
+/* Rodapé */
+footer {
+    background-color: #ff69b4; /* Rosa */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+
+input {
+    padding: 5px;
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 37%;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.logo {
+   display: flex;
+    width: 100px;
+    position: absolute;
+    top: 0px;
+}
