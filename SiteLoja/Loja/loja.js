@@ -39,7 +39,7 @@ function iniciarProgresso() {
     
     const totalProgress = valor3 - valor1; 
 
-    if (isNaN(valor1) || isNaN(valor2) || valor2 <= valor1 || isNaN(valor3) || valor3 <= valor2)  {
+    if (isNaN ( valor2 <= valor1) || (valor3 <= valor1)) {
         alert('Por favor, insira valores válidos onde Preço 2 ou 3 seja maior que Valor 1.');
         return;
         }
