@@ -1,5 +1,34 @@
 let total = 0;
 
+document.getElementById("cep").addEventListener("blur", function() {
+    let cep = this.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+
+    if (cep.length !== 8) {
+        alert("CEP inválido! Digite um CEP com 8 números.");
+        return;
+    }
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.erro) {
+                alert("CEP não encontrado!");
+                return;
+            }
+
+            // Preenche os dados na tela
+            document.getElementById("endereco").textContent = `Rua: ${data.logradouro || "-"}`;
+            document.getElementById("bairro").textContent = `Bairro: ${data.bairro || "-"}`;
+            document.getElementById("cidade").textContent = `Cidade: ${data.localidade || "-"}`;
+            document.getElementById("estado").textContent = `Estado: ${data.uf || "-"}`;
+        })
+        .catch(error => {
+            console.error("Erro:", error);
+            alert("Erro ao buscar o CEP. Tente novamente.");
+        });
+        document.getElementById("infocep").style.display = 'block';
+});
+
 function limparCarrinho() {
     const carrinho = document.querySelector('.carrinho ul');
     carrinho.innerHTML = '';
@@ -20,17 +49,27 @@ function adicionarItem(nome, preco) {
 let interval;
 
 function finalizarCompra() {
-    if (total === 0) {
+
+    document.getElementById('formulariocompra').style.display = 'block';
+    clearInterval(interval);
+
+    if (total === 0 || isNaN(total)) {
         alert('Adicione itens ao carrinho antes de finalizar a compra!');
+        return; }
+    if (validarConta() == false) {
         return;
-    } else {
-        iniciarProgresso();
-        
     }
+    else {
+    if (total > 0) {
+        iniciarProgresso();
+
+    }
+
 }
 
 function iniciarProgresso() {
-    clearInterval(interval);
+
+    
     
     const valor1 = parseFloat(document.getElementById('preco1').value);
     const valor2 = parseFloat(document.getElementById('preco2').value);
@@ -69,4 +108,19 @@ function iniciarProgresso() {
         progressBar.style.width = percent + '%';
         progressBar.textContent = percent + '%';
     }, 50);
+}
+}
+
+function validarConta() {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const numero = document.getElementById('numero').value;
+    const cep = document.getElementById('cep').value;
+    
+    if (nome === '' || email === '' || numero === '' || cep === '') {
+        alert('Preencha todos os campos para criar sua conta');
+        return false;
+    }
+
+    return true;
 }

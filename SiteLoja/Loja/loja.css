@@ -219,4 +219,36 @@ label {
     display: none;
     border-radius: 8px;}
 
+    #formulariocompra button {
+        background-color: #ff69b4; /* Rosa */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 20%;
+    margin-top: 20px;
+    
+    }
+
+    #formulario {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            left: 40%;
+    } 
+        
+#infocep {
+    display: none;
+}
+
+#formulariocompra {
+   display: none;
+}
     
