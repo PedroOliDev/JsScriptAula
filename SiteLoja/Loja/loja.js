@@ -21,13 +21,21 @@ document.getElementById("cep").addEventListener("blur", function() {
             document.getElementById("bairro").textContent = `Bairro: ${data.bairro || "-"}`;
             document.getElementById("cidade").textContent = `Cidade: ${data.localidade || "-"}`;
             document.getElementById("estado").textContent = `Estado: ${data.uf || "-"}`;
+
+            // Obtém a alíquota de ICMS com base no estado
+            let aliquotasICMS = {
+                "SP": 18, "RJ": 20, "MG": 18, "ES": 17, "RS": 17,
+                "PR": 18, "SC": 17, "BA": 19, "PE": 18, "CE": 18
+            };
+            let aliquota = aliquotasICMS[data.uf] || 17; // Padrão 17% se não estiver listado
+            document.getElementById("icms").textContent = `ICMS: ${aliquota}%`;
+
+            document.getElementById("infocep").style.display = 'block';
+            document.getElementById("compra").dataset.icms = aliquota;
         })
-        .catch(error => {
-            console.error("Erro:", error);
-            alert("Erro ao buscar o CEP. Tente novamente.");
-        });
-        document.getElementById("infocep").style.display = 'block';
+
 });
+
 
 function limparCarrinho() {
     const carrinho = document.querySelector('.carrinho ul');
@@ -121,6 +129,14 @@ function validarConta() {
         alert('Preencha todos os campos para criar sua conta');
         return false;
     }
-
+    
     return true;
 }
+
+document.getElementById("compra").addEventListener("click", function() {
+    let valorBase = total;
+    let aliquota = parseFloat(this.dataset.icms) || 17; // Padrão 17% caso não tenha sido carregado
+    let valorFinal = valorBase + (valorBase * (aliquota / 100));
+    
+    document.getElementById("totalcarrinho").textContent = `${valorFinal.toFixed(2)}`;
+});
